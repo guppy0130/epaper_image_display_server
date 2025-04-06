@@ -1,0 +1,20 @@
+[project]
+name = "epaper_image_display_server"
+description = "send dithered image data to epaper displays"
+authors = [{ name = "Nick Yang", email = "guppy0130@users.noreply.github.com" }]
+dynamic = ["version", "readme"]
+requires-python = ">=3.11"
+dependencies = ["fastapi", "pillow", "pydantic-extra-types", "loguru"]
+
+[project.optional-dependencies]
+server = ["hypercorn"]
+dev = ["epaper_image_display_server[server]"]
+
+[build-system]
+requires = ["setuptools>=64", "setuptools-scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.dynamic]
+readme = { file = "README", content-type = "text/markdown" }
+
+[tool.setuptools_scm]
